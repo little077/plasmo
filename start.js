@@ -8,8 +8,6 @@ const packageJson = require(packageJsonPath)
 const directoryPath = path.join(__dirname, "./config/project")
 const files = fs.readdirSync(directoryPath)
 
-
-
 function write(res) {
   const content = fs.readFileSync(
     path.join(__dirname, `./config/project/${res}.json`),
