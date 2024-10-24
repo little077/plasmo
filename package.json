@@ -5,8 +5,8 @@
   "description": "A basic Plasmo extension.",
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "scripts": {
-    "dev": "node start.js && plasmo dev",
-    "build": "node start.js && plasmo build",
+    "dev": "plasmo dev",
+    "build": " plasmo build",
     "package": "plasmo package"
   },
   "dependencies": {
