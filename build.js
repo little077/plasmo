@@ -29,7 +29,7 @@ function build(index){
       )
       errListPluginNames.length > 0 &&
         console.log("\x1b[34m", "打包失败的插件", errListPluginNames)
-      const filePath = path.resolve(__dirname, "../build/chrome-mv3-prod")
+      const filePath = path.resolve(__dirname, "./build/chrome-mv3-prod")
       fs.rm(filePath, { recursive: true, force: true }, (err) => void 0);
         return
     }else{
