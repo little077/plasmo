@@ -13,7 +13,7 @@ function build(index){
     }else{
         const plugin = plugAllName[index];
         exec(
-            `node start.js --target=${plugin} && plasmo build --env=${!isDev?".env":".env.production"}  --zip --target=${plugin}`,
+            `node start.js --target=${plugin} && plasmo build --env=${!isDev?".env":".env.production"}  --zip && node rw.js --target=${plugin}`,
             (error, stdout, stderr) => {
               if (error) {
                 console.error(`打包 ${plugin} 失败: ${error.message}`)
