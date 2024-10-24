@@ -1,12 +1,14 @@
 {
-  "name": "2",
+  "name": "3",
   "displayName": "Littledemo",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A basic Plasmo extension.",
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "scripts": {
     "dev": "node start.js && plasmo dev",
     "build": "node start.js && plasmo build",
+    "build:test": "node build.js --env=.env",
+    "build:prod": "node build.js --env=.env.production",
     "package": "plasmo package"
   },
   "dependencies": {

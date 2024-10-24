@@ -6,20 +6,12 @@ const packageJsonPath = path.join(__dirname, "./package.json")
 const packageJson = require(packageJsonPath)
 const directoryPath = path.join(__dirname, "./config/project")
 const files = fs.readdirSync(directoryPath)
-
-function write(res) {
-  const content = fs.readFileSync(
-    path.join(__dirname, `./config/project/${res}.json`),
-    "utf-8"
-  )
-  const value = {...JSON.parse(content)}
-  const copyPackageJson= packageJson
-  copyPackageJson.name = value.name
-  copyPackageJson.version = value.version
-
-  fs.writeFileSync(packageJsonPath, JSON.stringify(copyPackageJson, null,2))
-  fs.writeFileSync(path.join("./.project", "build.json"), content, "utf-8")
-}
+const pluginName = process.argv[2]?.split("target=")[1]
+const isAllBuild  =pluginName?true:false;
+if(isAllBuild){
+  write(pluginName)
+}else{
+  
 let fileArr = []
 files.forEach((file) => {
   fileArr.push({
@@ -44,3 +36,21 @@ const answer = search({
 answer.then((res) => {
   write(res)
 })
+}
+
+
+
+
+function write(res) {
+  const content = fs.readFileSync(
+    path.join(__dirname, `./config/project/${res}.json`),
+    "utf-8"
+  )
+  const value = {...JSON.parse(content)}
+  const copyPackageJson= packageJson
+  copyPackageJson.name = value.name
+  copyPackageJson.version = value.version
+
+  fs.writeFileSync(packageJsonPath, JSON.stringify(copyPackageJson, null,2))
+  fs.writeFileSync(path.join("./.project", "build.json"), content, "utf-8")
+}
